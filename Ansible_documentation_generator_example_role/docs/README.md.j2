@@ -8,7 +8,7 @@ Ansible role variables are read from `meta/main.yml`, `defaults/main.yml` and `v
 ## Requirements
 
 - Python3
-- pip3 pyyml
+- pip3 pyyaml
 - pip3 jinja2
 
 `IMPORTANT`
