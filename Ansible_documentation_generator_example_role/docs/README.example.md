@@ -6,7 +6,7 @@ example_description
 
 - Ansible >= 2+
 
-Supported platforms:
+### Supported platforms:
 
 - EL
   - 6

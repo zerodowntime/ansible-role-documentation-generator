@@ -19,7 +19,7 @@
 
 {# PLATFORMS #}
 {%- macro platforms() -%}
-Supported platforms:
+### Supported platforms
 {% for platform in documentation_vars.meta.galaxy_info.platforms %}
 - {{ platform.name }}
 {%-   for version in platform.versions %}
