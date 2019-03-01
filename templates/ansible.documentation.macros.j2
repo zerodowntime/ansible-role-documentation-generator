@@ -1,0 +1,77 @@
+#jinja2: trim_blocks: "True", lstrip_blocks: "True"
+
+{# TITLE #}
+{%- macro title() -%}
+# {{ documentation_vars.meta.galaxy_info.role_name }}
+{%- endmacro %}
+
+{# DESCRIPTION #}
+{%- macro description() -%}
+{{ documentation_vars.meta.galaxy_info.description }}
+{%- endmacro %}
+
+{# REQUIREMENTS #}
+{%- macro requiremenents() -%}
+## Requirements
+
+- Ansible >= {{ documentation_vars.meta.galaxy_info.min_ansible_version }}
+{%- endmacro %}
+
+{# DEFAULTS #}
+{%- macro defaults() %}
+{%- if documentation_vars.defaults and documentation_vars.defaults | length > 0 -%}
+## Role default variables
+
+| Name | Description | Type | Default | Required |
+| -----| :---------: | :--: | :------:| -------- |
+{%   for default, values in documentation_vars.defaults.items() -%}
+| {{ default }} | {{ values.description }} | {{ values.type }} | `{{ values.default }}` | {{ values.required }} |
+{%   endfor %}
+*all variables are described in [defaults/main.yml](defaults/main.yml)*
+{%- endif %}
+{%- endmacro %}
+
+{# VARS #}
+{%- macro vars() %}
+{%- if documentation_vars.vars and documentation_vars.vars | length > 0 -%}
+## Role static variables
+
+This section describes static variables implemented in the role.
+
+{%   if documentation_vars.vars.main and documentation_vars.vars.main.data | length > 0 -%}
+### Main variables
+
+| Name | Description | Type | Default |
+| -----| :---------: | :--: | ------- |
+{%     for var, values in documentation_vars.vars.main.data.items() -%}
+  | {{ var }} | {{ values.description }} | {{ values.type }} | `{{ values.default }}` |
+{%     endfor %}
+*all these variables are described in [vars/main.yml](vars/main.yml)*
+
+{%- set any=documentation_vars.vars.__setitem__("main", dict) %}
+{%-   endif %}
+
+{#- OTHERS #}
+{%-   for file_name, this in documentation_vars.vars.items() %}
+{%-     if file_name and this.data |  length > 0 %}
+
+### {{ file_name }} variables
+
+| Name | Description | Type | Default |
+| -----| :---------: | :--: | ------- |
+{%       for var, values in this.data.items() -%}
+  | {{ var }} | {{ values.description }} | {{ values.type }} | `{{ values.default }}` |
+{%       endfor %}
+*all these variables are described in [vars/{{ this.filename }}](vars/{{ this.filename }})*
+
+{%-     endif %}
+{%-   endfor %}
+{%- endif %}
+{%- endmacro %}
+
+{# CONTRIBUTORS #}
+{%- macro contributors() -%}
+### Contributor
+
+- {{ documentation_vars.meta.galaxy_info.author }}
+{%- endmacro %}

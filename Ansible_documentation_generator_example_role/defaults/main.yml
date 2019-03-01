@@ -1,0 +1,7 @@
+---
+#? example_role__var_name:
+#?   type: my_example_type
+#?   description: my_example_description
+#?   required: True 
+#?   default: example_overide
+example_role__var_name: example

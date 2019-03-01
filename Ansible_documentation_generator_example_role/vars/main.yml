@@ -1,0 +1,5 @@
+---
+#? example_role__var_name:
+#?   type: my_example_type
+#?   description: my_example_description
+example_role__var_name: example
