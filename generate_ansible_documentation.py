@@ -96,10 +96,7 @@ def get_variables(path, required_keys, variable_type):
 
 # get defaults variables object
 def handle_defaults(path):
-  if os.path.exists(path):
-    data = get_variables(path, required_keys=defaults_required_keys, variable_type="defaults/main.yml")
-  else:
-    return None
+  return get_variables(path, required_keys=defaults_required_keys, variable_type="defaults/main.yml") if os.path.exists(path) else dict()
 
 # get vars variables object - main.yml and others in vars/*.yml
 def handle_vars(path):

@@ -36,13 +36,21 @@ python3 generate_ansible_documentation.py Ansible_documentation_generator_exampl
 
 { auto_docs.requiremenents() }
 
+{ auto_docs.platforms() }
+
 { auto_docs.defaults() }
 
 { auto_docs.vars() }
 
+{ auto_docs.license() }
+
 { auto_docs.contributors() }
 ```
 
-### Contributor
+## License
 
-- ZeroDowntime | wojciech.polnik@zerodowntime.pl
+[Apache License 2.0](LICENSE)
+
+## Support
+
+ZeroDowntime | wojciech.polnik@zerodowntime.pl

@@ -6,9 +6,24 @@ example_description
 
 - Ansible >= 2+
 
+Supported platforms:
 
+- EL
+  - 6
+  - 7
+- EL
+  - 6
+  - 7
 
-## Role static variables
+## Default role variables
+
+| Name | Description | Type | Default | Required |
+| -----| :---------: | :--: | :------:| -------- |
+| example_role__var_name | my_example_description | my_example_type | `example_overide` | True |
+
+**All default variables are described in [defaults/main.yml](defaults/main.yml) file.**
+
+## Static role variables
 
 This section describes static variables implemented in the role.
 
@@ -18,8 +33,12 @@ This section describes static variables implemented in the role.
 | -----| :---------: | :--: | ------- |
 | example_role__var_name | my_example_description | my_example_type | `example` |
 
-*all these variables are described in [vars/main.yml](vars/main.yml)*
+**All static main variables are described in [vars/main.yml](vars/main.yml) file.**
 
-### Contributor
+## License
 
-- ZeroDowntime | wojciech.polnik@zerodowntime.pl
+[Apache License 2.0](LICENSE)
+
+## Support
+
+ZeroDowntime | wojciech.polnik@zerodowntime.pl
