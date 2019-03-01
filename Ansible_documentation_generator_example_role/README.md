@@ -1,51 +1,39 @@
 # Ansible role documentation generator
 
-Provides generation of ansible documentation for `role from first argument(path to role)` or if no args given current directory location.
-
-Documentation for role is generated from jinja2 templates from `role_name/docs` path. 
-Ansible role variables are read from `meta/main.yml`, `defaults/main.yml` and `vars/*.yml`. The last two are `optional`.
+example_description
 
 ## Requirements
 
-- Python3
-- pip3 pyyml
-- pip3 jinja2
+- Ansible >= 2+
 
-`IMPORTANT`
+Supported platforms:
 
-2. `meta/main.yml` file needs to contain: ansible version, rolename, description and contributor.
-3. Documentation template files should be in format `*.md.j2`
-4. Main `README.md`(case sensitive) is `required` and automatically moved to `main role directory`, other generated md files stay in `docs directory`
-5. Jinja2 Templates(for include/import) are read from `this_project_path/templates` and `given_role/docs` paths
-6. `Ansible_documentation_generator_example_role` is an example role
+- EL
+  - 6
+  - 7
+- EL
+  - 6
+  - 7
 
-## Example of usage
+## Default role variables
 
-```bash
-python3 generate_ansible_documentation.py Ansible_documentation_generator_example_role
-```
+| Name | Description | Type | Default | Required |
+| -----| :---------: | :--: | :------:| -------- |
+| example_role__var_name | my_example_description | my_example_type | `example_overide` | True |
 
-## Example documentation template
+**All default variables are described in [defaults/main.yml](defaults/main.yml) file.**
 
-`Please replace single braces with double braces(here ommited for example docs ^^)`
+## Static role variables
 
-```jinja
-{ auto_docs.title() }
+This section describes static variables implemented in the role.
 
-{ auto_docs.description() }
+### Main variables
 
-{ auto_docs.requiremenents() }
+| Name | Description | Type | Default |
+| -----| :---------: | :--: | ------- |
+| example_role__var_name | my_example_description | my_example_type | `example` |
 
-{ auto_docs.platforms() }
-
-{ auto_docs.defaults() }
-
-{ auto_docs.vars() }
-
-{ auto_docs.license() }
-
-{ auto_docs.contributors() }
-```
+**All static main variables are described in [vars/main.yml](vars/main.yml) file.**
 
 ## License
 
