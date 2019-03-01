@@ -64,8 +64,8 @@ def get_doc_variables_object(lines, original_yml):
   documentation_yml = get_yaml_from_lines(stream_documentation)
 
   # merge original with documentation yml
-  for key in documentation_yml:
-    if key in original_yml:
+  for key in original_yml:
+    if key in documentation_yml:
       # if no default overide apply the one from original yml
       if "default" not in documentation_yml[key]:
         # add defaults

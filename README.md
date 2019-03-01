@@ -13,7 +13,7 @@ Ansible role variables are read from `meta/main.yml`, `defaults/main.yml` and `v
 
 `IMPORTANT`
 
-2. `meta/main.yml` file needs to contain: ansible version, rolename, description and contributor, platforms.
+2. `meta/main.yml` file needs to contain: ansible version, rolename, description and contributor.
 3. Documentation template files should be in format `*.md.j2`
 4. Main `README.md`(case sensitive) is `required` and automatically moved to `main role directory`, other generated md files stay in `docs directory`
 5. Jinja2 Templates(for include/import) are read from `this_project_path/templates` and `given_role/docs` paths
