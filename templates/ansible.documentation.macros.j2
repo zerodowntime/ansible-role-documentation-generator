@@ -34,7 +34,7 @@
 ## Default role variables
 
 | Name | Description | Type | Default | Required |
-| -----| :---------: | :--: | :------:| -------- |
+| -----| ----------- | :--: | :------:| :------: |
 {%   for default, values in documentation_vars.defaults.items() -%}
 | {{ default }} | {{ values.description }} | {{ values.type }} | `{{ values.default }}` | {{ values.required }} |
 {%   endfor %}
@@ -53,7 +53,7 @@ This section describes static variables implemented in the role.
 ### Main variables
 
 | Name | Description | Type | Default |
-| -----| :---------: | :--: | ------- |
+| -----| ----------- | :--: | :-----: |
 {%     for var, values in documentation_vars.vars.main.data.items() -%}
   | {{ var }} | {{ values.description }} | {{ values.type }} | `{{ values.default }}` |
 {%     endfor %}
