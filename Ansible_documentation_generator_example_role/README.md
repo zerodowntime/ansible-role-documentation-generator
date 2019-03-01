@@ -11,9 +11,6 @@ Supported platforms:
 - EL
   - 6
   - 7
-- EL
-  - 6
-  - 7
 
 ## Default role variables
 
