@@ -34,7 +34,7 @@ python3 generate_ansible_documentation.py Ansible_documentation_generator_exampl
 
 { auto_docs.description() }
 
-{ auto_docs.requiremenents() }
+{ auto_docs.requirements() }
 
 { auto_docs.platforms() }
 
@@ -53,4 +53,4 @@ python3 generate_ansible_documentation.py Ansible_documentation_generator_exampl
 
 ## Support
 
-ZeroDowntime | wojciech.polnik@zerodowntime.pl
+ZeroDowntime <ansible@zerodowntime.pl>

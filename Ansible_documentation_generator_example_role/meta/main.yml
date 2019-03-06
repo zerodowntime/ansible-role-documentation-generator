@@ -1,15 +1,15 @@
 ---
+dependencies: []
+
 galaxy_info:
   role_name: Ansible role documentation generator
-  author: ZeroDowntime | wojciech.polnik@zerodowntime.pl
-  license: Apache License 2.0
-  company: ZeroDowntime
   description: example_description
+  author: ZeroDowntime <ansible@zerodowntime.pl>
+  company: ZeroDowntime Sp. z o.o.
+  license: Apache License 2.0
   platforms:
     - name: EL
       versions:
         - 6
         - 7
   min_ansible_version: 2+
-
-dependencies: []
