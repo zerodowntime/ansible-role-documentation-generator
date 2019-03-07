@@ -55,7 +55,7 @@ def get_yaml_from_lines(lines):
 # reads yml variables once and commented with "#?" yml, then merges them together,
 # original yml values are as defaults to the documentation, 
 # it can be override with 'default' key in documentation yml
-def get_doc_variables_object(lines, original_yml):
+def get_doc_variables_object(lines, original_yml, variable_type):
 
   # parse in-comment yml
   stream_documentation = []
@@ -71,7 +71,7 @@ def get_doc_variables_object(lines, original_yml):
         # add defaults
         documentation_yml[key]["default"] = original_yml[key]
     else:
-      print("WARN: {0} variable is not covered in documentation".format(key))
+      print("WARN: {0} variable is not covered in {1}".format(key, variable_type))
 
   return documentation_yml
 
@@ -81,17 +81,17 @@ def get_validated_object(documentation_object, valid_object, type):
     for required_key, default in valid_object.items():
       if required_key not in keys:
         if default is not None:
-          print("WARN: '{0}' does not cover '{1}' key in {3} documentation, applied default '{2}'".format(variable, required_key, default, type))
+          print("WARN: '{0}' does not cover '{1}' key in {3}, applied default '{2}'".format(variable, required_key, default, type))
           documentation_object[variable][required_key] = default
         else:
-          print("ERROR: '{0}' does not cover '{1}' key in {3} documentation".format(variable, required_key, type))
+          print("ERROR: '{0}' does not cover '{1}' key in {2}".format(variable, required_key, type))
   return documentation_object
 
 # read file, get is yml and finally return object with documentation variables
 def get_variables(path, required_keys, variable_type):
   lines = get_file_lines(path)
   variables = get_yaml_from_lines(lines)
-  variables_object = get_doc_variables_object(lines, variables)
+  variables_object = get_doc_variables_object(lines, variables, variable_type)
   return get_validated_object(variables_object, required_keys, variable_type)
 
 # get defaults variables object
@@ -109,7 +109,7 @@ def handle_vars(path):
     # name without extension
     filename = file_with_extension[:-4]
     # object for this file, data as dict with its documentation variables and filename as filename with extension
-    data = get_variables(file_path, required_keys=vars_required_keys, variable_type=file_with_extension)
+    data = get_variables(file_path, required_keys=vars_required_keys, variable_type="vars/" + file_with_extension)
     if data:
       vars_file_object = dict(data = data, filename = file_with_extension)
       # add to vars dictionary generated object
