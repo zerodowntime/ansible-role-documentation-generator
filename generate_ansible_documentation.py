@@ -45,7 +45,7 @@ def get_file_lines(path):
 def get_yaml_from_lines(lines):  
   # read default variables
   try:
-    object = yaml.load("".join(lines))
+    object = yaml.load("".join(lines), Loader=yaml.FullLoader)
     if DEBUG:
       print(object)
   except yaml.YAMLError as exc:
