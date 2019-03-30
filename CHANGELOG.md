@@ -1,5 +1,9 @@
 # History
 
+## 1.0.2 (March 30, 2019)
+
+* Improved docs [change](https://git.zdt.io/ansible/ansible_role_documentation_generator/commit/fb932bce026db10d2cb447ac873ed55c5f5f8801)
+
 ## 1.0.1 (March 30, 2019)
 
 * Added `changelog.md` [change](https://git.zdt.io/ansible/ansible_role_documentation_generator/commit/051dc533ac15927589f50e9b2cf3ec0a8ee78485)
