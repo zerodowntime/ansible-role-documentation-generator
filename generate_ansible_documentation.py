@@ -57,9 +57,6 @@ def get_yaml_from_lines(lines):
 # it can be override with 'default' key in documentation yml
 def get_doc_variables_object(lines, original_yml, variable_type):
 
-  # parse in-comment yml
-  # stream_documentation = []
-  # [ stream_documentation.append(line.strip("#?")) for line in lines if line.startswith( "#?" )]
   stream_documentation = [line.strip("#?") for line in lines if line.startswith( "#?" )]
   
   documentation_yml = get_yaml_from_lines(stream_documentation)
