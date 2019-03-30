@@ -7,9 +7,18 @@ Ansible role variables are read from `meta/main.yml`, `defaults/main.yml` and `v
 
 ## Requirements
 
-- Python3
+- `Python3`
+
+Pip packages
+
 - pip3 pyyaml
 - pip3 jinja2
+
+You can use also requirement file:
+
+```bash
+pip install -r requirements.txt
+```
 
 `IMPORTANT`
 
