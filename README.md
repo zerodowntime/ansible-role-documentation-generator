@@ -11,8 +11,8 @@ Ansible role variables are read from `meta/main.yml`, `defaults/main.yml` and `v
 
 Pip packages
 
-- pip3 pyyaml
-- pip3 jinja2
+- pip3 PyYAML
+- pip3 Jinja2
 
 You can use also requirement file:
 
@@ -22,11 +22,11 @@ pip install -r requirements.txt
 
 `IMPORTANT`
 
-2. `meta/main.yml` file needs to contain: ansible version, rolename, description and contributor.
-3. Documentation template files should be in format `*.md.j2`
-4. Main `README.md`(case sensitive) is `required` and automatically moved to `main role directory`, other generated md files stay in `docs directory`
-5. Jinja2 Templates(for include/import) are read from `this_project_path/templates` and `given_role/docs` paths
-6. `Ansible_documentation_generator_example_role` is an example role
+1. `meta/main.yml` file needs to contain: ansible version, rolename, description and contributor.
+2. Documentation template files should be in format `*.md.j2`
+3. Main `README.md`(case sensitive) is `required` and automatically moved to `main role directory`, other generated md files stay in `docs directory`
+4. Jinja2 Templates(for include/import) are read from `this_project_path/templates` and `given_role/docs` paths
+5. `Ansible_documentation_generator_example_role` is an example role
 
 ## Example of usage
 
@@ -36,24 +36,22 @@ python3 generate_ansible_documentation.py Ansible_documentation_generator_exampl
 
 ## Example documentation template
 
-`Please replace single braces with double braces(here ommited for example docs ^^)`
-
 ```jinja
-{ auto_docs.title() }
+{{ auto_docs.title() }}
 
-{ auto_docs.description() }
+{{ auto_docs.description() }}
 
-{ auto_docs.requirements() }
+{{ auto_docs.requirements() }}
 
-{ auto_docs.platforms() }
+{{ auto_docs.platforms() }}
 
-{ auto_docs.defaults() }
+{{ auto_docs.defaults() }}
 
-{ auto_docs.vars() }
+{{ auto_docs.vars() }}
 
-{ auto_docs.license() }
+{{ auto_docs.license() }}
 
-{ auto_docs.contributors() }
+{{ auto_docs.contributors() }}
 ```
 
 ## License
