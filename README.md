@@ -17,7 +17,7 @@ Pip packages
 You can use also requirement file:
 
 ```bash
-pip install -r requirements.txt
+pip3 install -r requirements.txt
 ```
 
 `IMPORTANT`
