@@ -49,9 +49,9 @@ vars_required_keys = {
 ansible_documentation_macros = 'ansible.documentation.macros.j2'
 
 
-def use_script_path(path):
-    """add to the path begin this python script path"""
-    return os.path.dirname(os.path.realpath(__file__)) + "/" + path
+# def use_script_path(path):
+#     """add to the path, dirname of this python script path"""
+#     return os.path.dirname(os.path.realpath(__file__)) + "/" + path
 
 
 def get_file_lines(path):
@@ -64,7 +64,7 @@ def get_file_lines(path):
 
 
 def get_yaml_from_lines(lines):
-    """join list on lines into one yml file"""
+    """join list of lines into one yml file"""
     # read default variables
     try:
         object = yaml.load("".join(lines), Loader=yaml.FullLoader)
@@ -76,9 +76,9 @@ def get_yaml_from_lines(lines):
 
 
 def get_doc_variables_object(lines, original_yml, variable_type):
-    """reads yml variables once and commented with "#?" yml, then merges them together,
-    original yml values are as defaults to the documentation,
-    it can be override with 'default' key in documentation yml"""
+    """given original ansible yml vars, reads the ones commented with "#?", 
+    then merges them together - original yml values are as defaults to the documentation,
+    it can be overwritten with 'default' key in documentation yml"""
 
     stream_documentation = [line.strip("#?")
                             for line in lines if line.startswith("#?")]
@@ -88,7 +88,7 @@ def get_doc_variables_object(lines, original_yml, variable_type):
     # merge original with documentation yml
     for key in original_yml:
         if key in documentation_yml:
-            # if no default overide apply the one from original yml
+            # if no overriding `default` key, apply the one from original yml
             if "default" not in documentation_yml[key]:
                 # add defaults
                 documentation_yml[key]["default"] = original_yml[key]
@@ -115,7 +115,8 @@ def get_validated_object(documentation_object, valid_object, type):
 
 
 def get_variables(path, required_keys, variable_type):
-    """read file, get is yml and finally return object with documentation variables"""
+    """read file, get yml variables, combine them with `#?` ones
+    and finally return object with documentation variables"""
     lines = get_file_lines(path)
     variables = get_yaml_from_lines(lines)
     variables_object = get_doc_variables_object(
@@ -222,7 +223,8 @@ def main(path_wrapper):
 
 if __name__ == "__main__":
     """first entry of python"""
-    # if given arg then it is path to role
+    # it used to use `use_script_path` but was replaced with lambda
+    # if given arg, then it is the path to the role
     if len(sys.argv) == 2:
         main(lambda x: sys.argv[1] + '/' + x)
     # else files should be in the role
