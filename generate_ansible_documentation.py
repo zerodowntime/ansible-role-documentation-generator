@@ -1,4 +1,13 @@
 #!/usr/bin/env python3
+
+"""Generates ansible role documentation.
+
+With use of `#?` prefix in defaults and vars script reads the variables and information
+describing them. Following meta dir is read to gather facts about role name, authors etc.
+Finally the processed data is consolidated into documentation according to role template.
+Used predefined macros are in templates dir
+"""
+
 # read yml
 import yaml
 import sys
@@ -9,6 +18,16 @@ import shutil as sh
 import glob
 # jinja things ENVIRONMENT, LOADER, TEMPLATE etc
 import jinja2 as j2
+
+__author__ = "Wojciech Polnik"
+__copyright__ = "Copyright 2019, ZeroDowntime"
+__credits__ = ["Wojciech Polnik"]
+__license__ = "Apache 2.0"
+
+__version__ = "1.0.3"
+__maintainer__ = "Wojciech Polnik"
+__email__ = "support@zdt.io"
+__status__ = "Production"
 
 # DEBUG flag
 DEBUG = False
