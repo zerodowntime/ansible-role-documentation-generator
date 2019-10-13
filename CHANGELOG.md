@@ -1,5 +1,9 @@
 # History
 
+## 1.0.3 (October 13, 2019)
+
+* Added license docs
+
 ## 1.0.2 (March 30, 2019)
 
 * Improved docs [change](https://git.zdt.io/ansible/ansible_role_documentation_generator/commit/fb932bce026db10d2cb447ac873ed55c5f5f8801)
