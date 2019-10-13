@@ -3,6 +3,9 @@
 ## 1.0.3 (October 13, 2019)
 
 * Added license docs
+* Improved script python indent and comments
+* Added script meta information
+* Moved jinja doc template from role to main repo dir
 
 ## 1.0.2 (March 30, 2019)
 
