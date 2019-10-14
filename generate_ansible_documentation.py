@@ -21,7 +21,8 @@ import jinja2 as j2
 
 __author__ = "Wojciech Polnik"
 __copyright__ = "Copyright 2019, ZeroDowntime"
-__credits__ = ["Wojciech Polnik"]
+__credits__ = ["Wojciech Polnik", "Piotr Stawarski",
+               "Krzysztof Kotewa", "Michał Tomczuk", "Joanna Marek"]
 __license__ = "Apache 2.0"
 
 __version__ = "1.0.3"
@@ -76,7 +77,7 @@ def get_yaml_from_lines(lines):
 
 
 def get_doc_variables_object(lines, original_yml, variable_type):
-    """given original ansible yml vars, reads the ones commented with "#?", 
+    """given original ansible yml vars, reads the ones commented with "#?",
     then merges them together - original yml values are as defaults to the documentation,
     it can be overwritten with 'default' key in documentation yml"""
 
