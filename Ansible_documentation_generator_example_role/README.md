@@ -16,9 +16,11 @@ example_description
 
 ## Default role variables
 
-| Name | Description | Type | Default | Required |
-| -----| ----------- | :--: | :------:| :------: |
-| example_role__var_name | my_example_description | my_example_type | `example_overide` | True |
+| Name | Description | Type | Default |
+| -----| ----------- | :--: | :-----: |
+| example_role__var_name | my_example_description | my_example_type | `example` |
+| example_role__var_overwrite | my_example_overwrite | my_example_type | `example_overwrite` |
+| example_role__var_required | my_example_required | my_example_type | required |
 
 **All default variables are described in [defaults/main.yml](defaults/main.yml) file.**
 

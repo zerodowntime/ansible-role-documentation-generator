@@ -2,6 +2,15 @@
 #? example_role__var_name:
 #?   type: my_example_type
 #?   description: my_example_description
-#?   required: True 
-#?   default: example_overide
 example_role__var_name: example
+
+#? example_role__var_overwrite:
+#?   type: my_example_type
+#?   description: my_example_overwrite
+#?   default: example_overwrite
+example_role__var_overwrite: example
+
+#? example_role__var_required:
+#?   type: my_example_type
+#?   description: my_example_required
+example_role__var_required: !!null

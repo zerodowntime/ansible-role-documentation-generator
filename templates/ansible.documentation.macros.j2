@@ -36,10 +36,10 @@
 {%- if documentation_vars.defaults and documentation_vars.defaults | length > 0 -%}
 ## Default role variables
 
-| Name | Description | Type | Default | Required |
-| -----| ----------- | :--: | :------:| :------: |
+| Name | Description | Type | Default |
+| -----| ----------- | :--: | :-----: |
 {%   for default, values in documentation_vars.defaults.items() -%}
-| {{ default }} | {{ values.description }} | {{ values.type }} | `{{ values.default }}` | {{ values.required }} |
+| {{ default }} | {{ values.description }} | {{ values.type }} | {% if values.default %}`{{ values.default }}`{% else %}required{% endif %} |
 {%   endfor %}
 **All default variables are described in [defaults/main.yml](defaults/main.yml) file.**
 {%- endif %}
@@ -72,7 +72,7 @@ This section describes static variables implemented in the role.
 ### {{ file_name }} variables
 
 | Name | Description | Type | Default |
-| -----| :---------: | :--: | ------- |
+| -----| ----------- | :--: | :-------: |
 {%       for var, values in this.data.items() -%}
   | {{ var }} | {{ values.description }} | {{ values.type }} | `{{ values.default }}` |
 {%       endfor %}

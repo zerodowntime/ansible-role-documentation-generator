@@ -36,7 +36,7 @@ DEBUG = False
 # required keys by documentation in defaults/main.yml
 defaults_required_keys = {
     'type': 'string',
-    'required': 'yes',
+    # 'required': 'yes',  # removed in 1.1.0
     'description': None,
 }
 
