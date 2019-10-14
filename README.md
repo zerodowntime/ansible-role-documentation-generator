@@ -60,4 +60,4 @@ python3 generate_ansible_documentation.py Ansible_documentation_generator_exampl
 
 ## Support
 
-ZeroDowntime Team <support@zdt.io>
+ZeroDowntime Team <ansible@zerodowntime.pl>

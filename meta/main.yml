@@ -1,15 +1,7 @@
 ---
-dependencies: []
-
 galaxy_info:
   role_name: Ansible role documentation generator
   description: example_description
   author: ZeroDowntime Team <ansible@zerodowntime.pl>
   company: ZeroDowntime Sp. z o.o.
   license: Apache License 2.0
-  platforms:
-    - name: EL
-      versions:
-        - 6
-        - 7
-  min_ansible_version: 2+

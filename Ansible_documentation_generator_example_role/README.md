@@ -42,4 +42,4 @@ This section describes static variables implemented in the role.
 
 ## Support
 
-ZeroDowntime <ansible@zerodowntime.pl>
+ZeroDowntime Team <ansible@zerodowntime.pl>
