@@ -20,7 +20,7 @@ import glob
 import jinja2 as j2
 
 __author__ = "Wojciech Polnik"
-__copyright__ = "Copyright 2019, ZeroDowntime"
+__copyright__ = "Copyright 2019, ZeroDowntime Sp. z o.o."
 __credits__ = ["Wojciech Polnik", "Piotr Stawarski",
                "Krzysztof Kotewa", "Michał Tomczuk", "Joanna Marek"]
 __license__ = "Apache 2.0"
