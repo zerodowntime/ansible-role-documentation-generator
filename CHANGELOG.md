@@ -1,5 +1,12 @@
 # History
 
+## 1.1.0 (October 15, 2019)
+
+* Removed the need to define `required` in defaults
+* Added handling of meta not found
+* Updated meta files
+* Adjusted licenses
+
 ## 1.0.3 (October 13, 2019)
 
 * Added license docs
