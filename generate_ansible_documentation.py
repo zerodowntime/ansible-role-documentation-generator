@@ -153,7 +153,10 @@ def handle_vars(path):
 
 def handle_meta(path):
     """get meta variables object"""
-    meta_lines = get_file_lines(path)
+    try:
+        meta_lines = get_file_lines(path)
+    except FileNotFoundError:
+        exit('Error! There is no {} file which is required'.format(path))
     meta_object = get_yaml_from_lines(meta_lines)
     return meta_object
 
