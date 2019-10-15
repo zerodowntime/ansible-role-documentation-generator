@@ -54,6 +54,10 @@ python3 generate_ansible_documentation.py Ansible_documentation_generator_exampl
 {{ auto_docs.contributors() }}
 ```
 
+## Example meta file
+
+[Ansible_documentation_generator_example_role/meta/main.yml](Ansible_documentation_generator_example_role/meta/main.yml)
+
 ## License
 
 [Apache License 2.0](LICENSE)
