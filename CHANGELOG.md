@@ -1,5 +1,11 @@
 # History
 
+## 1.2.0 (October 15, 2019)
+
+* Improved verbosity and handling of moving readme.md to upper dir
+* Added generated dir for other documentation files
+* Added link to example meta file in docs
+
 ## 1.1.0 (October 15, 2019)
 
 * Removed the need to define `required` in defaults

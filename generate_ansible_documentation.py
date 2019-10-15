@@ -25,7 +25,7 @@ __credits__ = ["Wojciech Polnik", "Piotr Stawarski",
                "Krzysztof Kotewa", "Michał Tomczuk", "Joanna Marek"]
 __license__ = "Apache 2.0"
 
-__version__ = "1.1.0"
+__version__ = "1.2.0"
 __maintainer__ = "Wojciech Polnik"
 __email__ = "support@zdt.io"
 __status__ = "Production"
@@ -197,6 +197,15 @@ def handle_documentation(path_wrapper, defaults_object, vars_object, meta_object
     if DEBUG:
         print("documentation files", files_to_document)
 
+    try:
+        os.mkdir(path_wrapper('docs/generated'))
+        print("created {}".format(path_wrapper('docs/generated')))
+    except FileNotFoundError:
+        exit('Error! There is `docs` directory in {} to read save generated docs'.format(
+            path_wrapper('docs/generated')))
+    except FileExistsError:
+        pass
+
     for file in files_to_document:
         documentation_template_lines = get_file_lines(path_wrapper(file))
         documentation = get_documentation(template="".join(documentation_template_lines),
@@ -206,10 +215,18 @@ def handle_documentation(path_wrapper, defaults_object, vars_object, meta_object
                                           vars=vars_object)
 
         # save to file without .j2
-        save_documentation(documentation, path_wrapper(file[:-3]))
+        new_file = file.replace('docs/', 'docs/generated/').replace('.j2', '')
+        save_documentation(documentation, path_wrapper(new_file))
+        print("generated {} from {}".format(new_file, file))
 
     # move main docs directory upp
-    sh.move(path_wrapper("docs/README.md"), path_wrapper('README.md'))
+    try:
+        sh.move(path_wrapper("docs/generated/README.md"),
+                path_wrapper('README.md'))
+        print("moved docs/generated/README.md to main dir")
+
+    except FileNotFoundError:
+        print("README.md has not been generated")
 
     return True
 
