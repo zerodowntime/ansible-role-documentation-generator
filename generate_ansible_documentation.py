@@ -220,7 +220,13 @@ def handle_documentation(path_wrapper, defaults_object, vars_object, meta_object
         print("generated {} from {}".format(new_file, file))
 
     # move main docs directory upp
-    sh.move(path_wrapper("docs/README.md"), path_wrapper('README.md'))
+    try:
+        sh.move(path_wrapper("docs/generated/README.md"),
+                path_wrapper('README.md'))
+        print("moved docs/generated/README.md to main dir")
+
+    except FileNotFoundError:
+        print("README.md has not been generated")
 
     return True
 
