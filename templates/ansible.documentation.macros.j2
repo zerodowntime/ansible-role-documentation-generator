@@ -39,7 +39,7 @@
 | Name | Description | Type | Default |
 | -----| ----------- | :--: | :-----: |
 {%   for default, values in documentation_vars.defaults.items() -%}
-| {{ default }} | {{ values.description }} | {{ values.type }} | {% if values.default %}`{{ values.default }}`{% else %}required{% endif %} |
+| {{ default }} | {{ values.description }} | {{ values.type }} | {% if (values.default is iterable and values.default|length == 0) or values.default %}`{{ values.default }}`{% else %}required{% endif %} |
 {%   endfor %}
 **All default variables are described in [defaults/main.yml](defaults/main.yml) file.**
 {%- endif %}
