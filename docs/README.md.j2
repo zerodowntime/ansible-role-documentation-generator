@@ -50,11 +50,21 @@ python3 generate_ansible_documentation.py Ansible_documentation_generator_exampl
 
 {{ auto_docs.vars() }}
 
+{{ auto_docs.playbooks() }}
+
 {{ auto_docs.license() }}
 
 {{ auto_docs.contributors() }}
 ```
 {%- endraw %}
+
+Examples of `auto_docs.playbooks()`:
+
+```jinja
+auto_docs.playbooks() # defaults to [molecule/shared/converge.yml]
+auto_docs.playbooks([path_to_playbook, path_to_playbook2, path_to_playbook3])
+auto_docs.playbooks([[path_to_playbook, playbook_description], path_to_playbook2, path_to_playbook3])
+```
 
 ## Example meta file
 

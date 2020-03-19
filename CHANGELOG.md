@@ -1,5 +1,9 @@
 # History
 
+## 1.3.0 (March 8, 2020)
+
+* Added option to include playbooks into docs
+
 ## 1.2.0 (October 15, 2019)
 
 * Improved verbosity and handling of moving readme.md to upper dir

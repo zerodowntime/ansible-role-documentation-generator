@@ -83,6 +83,26 @@ This section describes static variables implemented in the role.
 {%- endif %}
 {%- endmacro %}
 
+{# PLAYBOOK #}
+{%- macro playbooks(playbooks=["molecule/shared/converge.yml"]) -%}
+## Example playbooks
+{%- for playbook_data in playbooks %}
+
+{%-  set playbook_path = playbook_data -%}
+{%-  set playbook_description = False -%}
+{%-  if playbook_data is not string -%}
+{%-     set playbook_path = playbook_data[0] -%}
+{%-     set playbook_description = playbook_data[1] -%}
+{%-  endif %}
+
+### {{ playbook_path }}
+{% if playbook_description %}{{ '\n' + playbook_description + '\n' }}{%  endif %}
+```yaml
+{% include playbook_path %}
+```
+{%- endfor %}
+{%- endmacro %}
+
 {# LICENSE #}
 {%- macro license() -%}
 ## License
